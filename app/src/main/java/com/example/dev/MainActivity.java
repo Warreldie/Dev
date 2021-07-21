@@ -1,16 +1,17 @@
 package com.example.dev;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
     private ArrayList<Item> mList;
+    private RequestQueue mRequestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         mList = new ArrayList<Item>();
 
+        mRequestQueue = Volley.newRequestQueue(this);
         parseJSON();
     }
 
@@ -63,5 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
+        mRequestQueue.add(request);
     }
 }
