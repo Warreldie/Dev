@@ -8,7 +8,7 @@
     tools:context=".DetailActivity">
 
     <TextView
-        android:id="@+id/text_view_title"
+        android:id="@+id/text_view_detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
@@ -18,7 +18,6 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:text="Title article"/>
-
 
     <TextView
         android:id="@+id/text_view_text"
@@ -31,5 +30,4 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:text="Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Ut non enim eleifend felis pretium feugiat. Aenean massa. Curabitur ullamcorper ultricies nisi. Donec posuere vulputate arcu. Etiam feugiat lorem non metus. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Suspendisse eu ligula. Praesent adipiscing. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede."/>
-
 </LinearLayout>
