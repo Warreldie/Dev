@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Title article"/>
+
+
+    <TextView
+        android:id="@+id/text_view_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Ut non enim eleifend felis pretium feugiat. Aenean massa. Curabitur ullamcorper ultricies nisi. Donec posuere vulputate arcu. Etiam feugiat lorem non metus. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Suspendisse eu ligula. Praesent adipiscing. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede."/>
+
+</LinearLayout>
