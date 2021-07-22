@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements {
+public class MainActivity extends AppCompatActivity implements Adapter.OnItemClickListener {
     public static final String EXTRA_TITLE = "title";
     public static final String EXTRA_TEXT = "text";
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements {
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(int position) {
         Intent detailIntent = new Intent(this, DetailActivity.class);
         Item clickedItem = mList.get(position);
 

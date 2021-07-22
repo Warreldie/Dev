@@ -13,13 +13,13 @@ import java.util.ArrayList;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Item> mList;
-    private onItemClickListener mListener;
+    private OnItemClickListener mListener;
 
-    public interface onItemClickListener{
+    public interface OnItemClickListener{
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(onItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener){
         mListener = listener;
     }
 
