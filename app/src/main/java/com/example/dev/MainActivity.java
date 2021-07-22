@@ -1,6 +1,9 @@
 package com.example.dev;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +22,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements {
+    public static final String EXTRA_TITLE = "title";
+    public static final String EXTRA_TEXT = "text";
+
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
     private ArrayList<Item> mList;
@@ -50,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         JSONObject dev = response.getJSONObject(i);
                         String title = dev.getString("title");
-
-                        mList.add(new Item(title));
+                        String text = dev.getString("body");
+                        mList.add(new Item(title, text));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 mAdapter = new Adapter(MainActivity.this, mList);
                 mRecyclerView.setAdapter(mAdapter);
+                mAdapter.setOnItemClickListener(MainActivity.this);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -67,5 +74,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mRequestQueue.add(request);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent detailIntent = new Intent(this, DetailActivity.class);
+        Item clickedItem = mList.get(position);
+
+        detailIntent.putExtra(EXTRA_TITLE, clickedItem.getTitle());
+        detailIntent.putExtra(EXTRA_TEXT, clickedItem.getText());
+
+        startActivity(detailIntent);
     }
 }
