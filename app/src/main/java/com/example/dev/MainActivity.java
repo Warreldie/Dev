@@ -52,16 +52,16 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                for(int i = 0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject dev = response.getJSONObject(i);
                         String title = dev.getString("title");
                         String text = dev.getString("body");
+
                         mList.add(new Item(title, text));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
                 mAdapter = new Adapter(MainActivity.this, mList);
                 mRecyclerView.setAdapter(mAdapter);

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
-import static android.content.Intent.EXTRA_TITLE;
+import static android.content.ContentValues.TAG;
+import static com.example.dev.MainActivity.EXTRA_TITLE;
 import static com.example.dev.MainActivity.EXTRA_TEXT;
 
 public class DetailActivity extends AppCompatActivity {
@@ -17,10 +19,12 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
+
         String title = intent.getStringExtra(EXTRA_TITLE);
         String text = intent.getStringExtra(EXTRA_TEXT);
 
-        TextView textViewTitle = findViewById(R.id.text_view_detail_title);
+
+        TextView textViewTitle = findViewById(R.id.text_view_title);
         TextView textViewText = findViewById(R.id.text_view_text);
 
         textViewTitle.setText(title);

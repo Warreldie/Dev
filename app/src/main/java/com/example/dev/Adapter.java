@@ -60,7 +60,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     if(mListener != null){
-                        int position = getAdapterPosition();
+                        int position = getBindingAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
                             mListener.onItemClick(position);
                         }
