@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,8 +23,8 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String title = intent.getStringExtra(EXTRA_TITLE);
-        String text = intent.getStringExtra(EXTRA_TEXT);
+        final String title = intent.getStringExtra(EXTRA_TITLE);
+        final String text = intent.getStringExtra(EXTRA_TEXT);
 
 
         TextView textViewTitle = findViewById(R.id.text_view_title);
@@ -32,7 +33,21 @@ public class DetailActivity extends AppCompatActivity {
         textViewTitle.setText(title);
         textViewText.setText(text);
 
-
+        bt=(Button) findViewById(R.id.button_share);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String shareBody = text;
+                String shareSub = title;
+                //String shareUrl = "http://warrel.net/Dev";
+                myIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                //myIntent.putExtra(Intent.EXTRA_TEXT, shareUrl);
+                startActivity(Intent.createChooser(myIntent, "Share using"));
+            }
+        });
 
     }
 }
