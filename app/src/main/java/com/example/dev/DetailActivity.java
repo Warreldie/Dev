@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import static android.content.ContentValues.TAG;
@@ -12,6 +13,7 @@ import static com.example.dev.MainActivity.EXTRA_TITLE;
 import static com.example.dev.MainActivity.EXTRA_TEXT;
 
 public class DetailActivity extends AppCompatActivity {
+    Button bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class DetailActivity extends AppCompatActivity {
 
         textViewTitle.setText(title);
         textViewText.setText(text);
+
+
 
     }
 }
