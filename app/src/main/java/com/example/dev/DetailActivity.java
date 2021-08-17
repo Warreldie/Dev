@@ -13,13 +13,21 @@ import static android.content.ContentValues.TAG;
 import static com.example.dev.MainActivity.EXTRA_TITLE;
 import static com.example.dev.MainActivity.EXTRA_TEXT;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity{
+    private FragmentPrevious fragmentPrevious;
+    private FragmentNext fragmentNext;
+
     Button bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        fragmentPrevious = new FragmentPrevious();
+        fragmentNext = new FragmentNext();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_previous, fragmentPrevious).replace(R.id.container_next, fragmentNext).commit();
 
         Intent intent = getIntent();
 
@@ -50,4 +58,5 @@ public class DetailActivity extends AppCompatActivity {
         });
 
     }
+
 }
