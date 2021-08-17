@@ -12,7 +12,7 @@ import android.widget.TextView;
 import static android.content.ContentValues.TAG;
 import static com.example.dev.MainActivity.EXTRA_TITLE;
 import static com.example.dev.MainActivity.EXTRA_TEXT;
-
+//Binds the values in the Detailscreen with use of an Intent
 public class DetailActivity extends AppCompatActivity {
     Button bt;
 
@@ -32,7 +32,7 @@ public class DetailActivity extends AppCompatActivity {
 
         textViewTitle.setText(title);
         textViewText.setText(text);
-
+        //Logica for the share button
         bt=(Button) findViewById(R.id.button_share);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -9,12 +9,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+//Is build for the first screen
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Item> mList;
     private OnItemClickListener mListener;
 
+    //If there is been clicked on an item it wil say what item it is wich number of the whole array
     public interface OnItemClickListener{
         void onItemClick(int position);
     }
@@ -23,17 +24,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         mListener = listener;
     }
 
+    //Makes a list
     public Adapter(Context context, ArrayList<Item> list){
         mContext = context;
         mList = list;
     }
 
+    //Inflator
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
        View v = LayoutInflater.from(mContext).inflate(R.layout.item, parent, false);
        return new ViewHolder(v);
     }
 
+    //Adds the title to the item from the position
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Item currentItem = mList.get(position);
@@ -42,7 +46,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         holder.mTitle.setText(title);
     }
-
+    //Makes the RecyclerView work with ViewHolder
     @Override
     public int getItemCount() {
         return mList.size();

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Making the RecyclerView
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         mRequestQueue = Volley.newRequestQueue(this);
         parseJSON();
     }
-
+    //Gets the data needed with api
     private void parseJSON() {
         String url = "http://warrel.net/Dev/api/frontpage";
 
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         mRequestQueue.add(request);
     }
 
+    //Gives the title and text to the detail screen with use of the position that is clicked on
     @Override
     public void onItemClick(int position) {
         Intent detailIntent = new Intent(this, DetailActivity.class);

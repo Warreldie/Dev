@@ -1,5 +1,5 @@
 package com.example.dev;
-
+//Get's the items
 public class Item {
     private String mTitle;
     private String mText;
