@@ -14,6 +14,7 @@ import static com.example.dev.MainActivity.EXTRA_TITLE;
 import static com.example.dev.MainActivity.EXTRA_TEXT;
 
 public class DetailActivity extends AppCompatActivity{
+    //Fragments Come together here
     private FragmentPrevious fragmentPrevious;
     private FragmentNext fragmentNext;
 
