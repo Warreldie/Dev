@@ -12,14 +12,38 @@ import android.widget.TextView;
 import static android.content.ContentValues.TAG;
 import static com.example.dev.MainActivity.EXTRA_TITLE;
 import static com.example.dev.MainActivity.EXTRA_TEXT;
-//Binds the values in the Detailscreen with use of an Intent
-public class DetailActivity extends AppCompatActivity {
+
+public class DetailActivity extends AppCompatActivity implements FragmentPrevious.FragmentPreviousListener, FragmentNext.FragmentNextListener {
+    //Fragments Come together here
+    private FragmentPrevious fragmentPrevious;
+    private FragmentNext fragmentNext;
+
     Button bt;
+
+    @Override
+    public void onInputNextSent(CharSequence input) {
+        fragmentPrevious.updateEditText(input);
+    }
+
+    @Override
+    public void onInputPreviousSent(CharSequence input) {
+        fragmentNext.updateEditText(input);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        fragmentPrevious = new FragmentPrevious();
+        fragmentNext = new FragmentNext();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_previous, fragmentPrevious)
+                .replace(R.id.container_next, fragmentNext)
+                .commit();
+
+
 
         Intent intent = getIntent();
 
@@ -32,7 +56,7 @@ public class DetailActivity extends AppCompatActivity {
 
         textViewTitle.setText(title);
         textViewText.setText(text);
-        //Logica for the share button
+
         bt=(Button) findViewById(R.id.button_share);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,4 +74,5 @@ public class DetailActivity extends AppCompatActivity {
         });
 
     }
+
 }
